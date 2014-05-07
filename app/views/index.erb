@@ -1,0 +1,18 @@
+<div class="starter-template">
+  <h1>Slacker News</h1>
+  <p class="lead">Slacker News is the best way to read Hacker News</p>
+</div>
+<a href="/add_post"><button type="button" class="pull-right btn btn-primary">Add Post</button></a>
+<h2 id="media-default">Posts</h2>
+<% @posts.each do |post| %>
+<div class="media">
+  <div class="media-body">
+    <h4 class="media-heading"><a href="<%= post.url %>" target="_blank"><%= post.title %></a></h4>
+    <p>body</p>
+    <a href="/posts/<%=post.id%>/comments" class="pull-right">Comments <%= post.comments.length %></a>
+    <br>
+    <p class="pull-right"><%= (post.created_at).strftime("%I:%M%p") %></p>
+  </div>
+</div>
+<% end %>
+</div>

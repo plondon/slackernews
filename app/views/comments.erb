@@ -1,0 +1,9 @@
+<h1>Comments for <%= @post.title %></h1>
+<% @comments.each do |comment| %>
+<div class="media">
+  <div class="media-body">
+    <h4 class="media-heading"><%= comment.content %><%=comment.user_id%></a></h4>
+    <br>
+    <p class="pull-left"><%= (comment.created_at).strftime("%I:%M%p") %></p>
+  </div>
+</div><% end %>

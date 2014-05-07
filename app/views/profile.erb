@@ -1,0 +1,17 @@
+<h1>Hello <%= @user.username %>!!!</h1>
+
+<h2 id="media-default">Posts</h2>
+<% @user.posts.reverse.each do |post| %>
+<div class="media">
+  <div class="media-body">
+    <h4 class="media-heading"><a href="<%= post.url %>" target="_blank"><%= post.title %></a></h4>
+    <form action="/delete_post/<%= post.id %>" method="post">
+      <input type="submit" name="_method" value="delete" class="btn btn-danger btn-lg pull-right">
+    </form>
+    <p>body</p>
+    <br>
+    <p class="pull-right"><%= (post.created_at).strftime("%I:%M%p") %></p>
+  </div>
+</div>
+<% end %>
+
